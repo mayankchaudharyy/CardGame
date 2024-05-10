@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  body{
+    width: 100%;
+    height: 160vh;
+    background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
+    background-size: 400% 400%;
+    position: relative;
+    animation: animate 7.5s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1{
+    color: #fff;
+    background: rgba(255,255,255,.2);
+    padding: 5px;
+    font-size: 50px;
+    border-radius: 10px;
+  }
+  
+  @keyframes animate{
+    0%{
+      background-position: 0 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0 50%;
+    }
+  }
+  
+  .middle {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .head2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .flip-box {
+    background-color: transparent;
+    width: 100%;
+    height: 150px;
+    /* border: 1px solid #f1f1f1; */
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    /* border-radius: 20px; */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  /* .flip-box:hover .flip-box-inner {
+      transform: rotateY(180deg);
+    } */
+  
+  /* Position the front and back side */
+  .flip-box-front,
+  .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-box-front {
+    /* background-color: #bbb; */
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-box-back {
+    background-color: #fff;
+    color: #000;
+    transform: rotateY(180deg);
+  }
+  
+  .outer {
+    /* width: 900px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    /* background-color: aqua; */
+    border-radius: 30px;
+    background: transparentize(#fff, 0.8);
+    text-shadow: 0 0 1em transparentize(#000, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 17px solid transparentize(#fff, 0.2);
+  }
+  .middle {
+    width: 1000px;
+    height: 100%;
+  }
+  
+  .flip-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .flip-box-back img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+  
+  @media screen and (max-width: 1057px) {
+    .middle{
+      width: 90%;
+    }
+    .flip-box {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 909px) {
+    .flip-box {
+      width: 100%;
+      height: 150px;
+    }
+  }
+  @media screen and (max-width: 685px) {
+    .flip-box {
+      width: 100%;
+      height: 100px;
+    }
+    .outer{
+      gap: 10px;
+    }
+    h1{
+      font-size: 24px;
+    }
+  }
+  @media screen and (max-width: 455px) {
+    .flip-box {
+      width: 100%;
+      height: 80px;
+    }
+    .outer {
+      gap: 5px;
+      padding: 10px;
+    }
+}
